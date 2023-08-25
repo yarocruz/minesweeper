@@ -1,6 +1,8 @@
 # Minesweeper
 
-Followed this [YouTube Tut](https://www.youtube.com/watch?v=rxdGAKRndz8). 
+![Screenshot-of-Minesweeper](Screenshot%202023-08-24%20at%209.02.56%20PM.png)
+
+Built this by following this [YouTube Tut](https://www.youtube.com/watch?v=rxdGAKRndz8). 
 
 It works, but there were ~~are~~ many code smells that I think could use some refactoring.
 
@@ -25,6 +27,8 @@ for (let i = 0; i < squares.length; i++) {
       }
 }
 ```
+
+You can find the full code for the game [here](https://github.com/kubowania/minesweeper/tree/master).
 
 It took me some time to understand that this is checking the 8 squares that sorround a square to count the bombs and place the numbers. But after careful study if found that all those number comparisons aren't necessary in the if's. 
 
