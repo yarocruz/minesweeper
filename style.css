@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 420px;
+    width: 420px;
+    background-color: #dd6c40;
+}
+
+.status {
+    margin: 10px auto;
+    font-size: 32px;
+}
+
+.grid div {
+    height: 40px;
+    width: 40px;
+    border: 1px solid whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bomb {
+    
+}
+
+.checked {
+    background-color: #e8dab3;
+}
+
+.flag {
+    background-color: green;
+}
+
+/** classes for the numbers */
+
+.one {
+    color: #dd6c40;
+}
+
+.two {
+    color: #e79e32;
+}
+
+.three {
+    color: #9bb4b9;
+}
+
+.four {
+    color: purple;
+}
+
+.five {
+    color: rgb(21, 205, 144);
+}
+
+.six {
+    color: brown;
+}
+
+.seven {
+    color: lavenderblush;
+}
+
+.eight {
+    color: palevioletred
+}
