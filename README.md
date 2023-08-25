@@ -10,21 +10,21 @@ For example:
 
 ```js
 for (let i = 0; i < squares.length; i++) {
-      let total = 0
-      const isLeftEdge = (i % width === 0)
-      const isRightEdge = (i % width === width -1)
+    let total = 0
+    const isLeftEdge = (i % width === 0)
+    const isRightEdge = (i % width === width -1)
 
-      if (squares[i].classList.contains('valid')) {
-        if (i > 0 && !isLeftEdge && squares[i -1].classList.contains('bomb')) total ++
-        if (i > 9 && !isRightEdge && squares[i +1 -width].classList.contains('bomb')) total ++
-        if (i > 10 && squares[i -width].classList.contains('bomb')) total ++
-        if (i > 11 && !isLeftEdge && squares[i -1 -width].classList.contains('bomb')) total ++
-        if (i < 98 && !isRightEdge && squares[i +1].classList.contains('bomb')) total ++
-        if (i < 90 && !isLeftEdge && squares[i -1 +width].classList.contains('bomb')) total ++
-        if (i < 88 && !isRightEdge && squares[i +1 +width].classList.contains('bomb')) total ++
-        if (i < 89 && squares[i +width].classList.contains('bomb')) total ++
-        squares[i].setAttribute('data', total)
-      }
+    if (squares[i].classList.contains('valid')) {
+    if (i > 0 && !isLeftEdge && squares[i -1].classList.contains('bomb')) total ++
+    if (i > 9 && !isRightEdge && squares[i +1 -width].classList.contains('bomb')) total ++
+    if (i > 10 && squares[i -width].classList.contains('bomb')) total ++
+    if (i > 11 && !isLeftEdge && squares[i -1 -width].classList.contains('bomb')) total ++
+    if (i < 98 && !isRightEdge && squares[i +1].classList.contains('bomb')) total ++
+    if (i < 90 && !isLeftEdge && squares[i -1 +width].classList.contains('bomb')) total ++
+    if (i < 88 && !isRightEdge && squares[i +1 +width].classList.contains('bomb')) total ++
+    if (i < 89 && squares[i +width].classList.contains('bomb')) total ++
+    squares[i].setAttribute('data', total)
+    }
 }
 ```
 
@@ -36,27 +36,27 @@ This is my refactored code for that section:
 
 ```js
 for (let i = 0; i < squares.length; i++) {
-            let total = 0
-            const isLeftEdge = (i % width === 0) // if divives evenly 0, 10, 20, 30...
-            const isRightEdge = (i % width === width - 1) // if the remainder is 9 eg 9, 19, 29, 39...
-            const topRow = i < 10
-            const bottomRow = i > 89
+    let total = 0
+    const isLeftEdge = (i % width === 0) // if divives evenly 0, 10, 20, 30...
+    const isRightEdge = (i % width === width - 1) // if the remainder is 9 eg 9, 19, 29, 39...
+    const topRow = i < 10
+    const bottomRow = i > 89
 
-            if (squares[i].classList.contains('valid')) {
-                if (!isLeftEdge && squareIsBomb(squares[i - 1])) total++ // check to the left
-                if (!isRightEdge && squareIsBomb(squares[i + 1])) total++ // check to the right
+    if (squares[i].classList.contains('valid')) {
+        if (!isLeftEdge && squareIsBomb(squares[i - 1])) total++ // check to the left
+        if (!isRightEdge && squareIsBomb(squares[i + 1])) total++ // check to the right
 
-                if (!topRow && !isRightEdge && squareIsBomb(squares[i + 1 - width])) total++ // check top right
-                if (!topRow && squareIsBomb(squares[i - width])) total++ // check top
-                if (!topRow && !isLeftEdge && squareIsBomb(squares[i - 1 - width])) total++ // check top left
+        if (!topRow && !isRightEdge && squareIsBomb(squares[i + 1 - width])) total++ // check top right
+        if (!topRow && squareIsBomb(squares[i - width])) total++ // check top
+        if (!topRow && !isLeftEdge && squareIsBomb(squares[i - 1 - width])) total++ // check top left
 
-                if (!bottomRow && !isLeftEdge && squareIsBomb(squares[i - 1 + width])) total++ // check bottom left
-                if (!bottomRow && !isRightEdge && squareIsBomb(squares[i + 1 + width])) total++ // check bottom right
-                if (!bottomRow && squareIsBomb(squares[i + width])) total++ // check bottom
+        if (!bottomRow && !isLeftEdge && squareIsBomb(squares[i - 1 + width])) total++ // check bottom left
+        if (!bottomRow && !isRightEdge && squareIsBomb(squares[i + 1 + width])) total++ // check bottom right
+        if (!bottomRow && squareIsBomb(squares[i + width])) total++ // check bottom
 
-                // on the div set data attrible that will equal the total
-                squares[i].setAttribute('data', total)
-            }
+        // on the div set data attrible that will equal the total
+        squares[i].setAttribute('data', total)
+    }
 }
 ```
 
