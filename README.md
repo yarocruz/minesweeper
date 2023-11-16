@@ -63,3 +63,5 @@ for (let i = 0; i < squares.length; i++) {
 I still think that the way to go is with a 2D array for the squares so you don't have hard code the numbers for the top and bottom rows, nor for the left and right edge.
 
 Right now I want to able to refactor it so the board can be bigger or any size really, at a timer, creating levels, but it's gonna get messy.
+
+[Demo here](https://yarocruz.github.io/minesweeper/). Still working on the timer UI and logic.
